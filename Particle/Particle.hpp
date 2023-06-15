@@ -9,13 +9,12 @@ namespace HyperEngine{
         public:
             Particle();
             Particle(float mass);
-            Particle(Vector3 position, Vector3 velocity, Vector3 acceleration, float mass);
-            Particle(Vector3 force, Vector3 position, Vector3 velocity, Vector3 acceleration, float mass);
+            Particle(Vector3 position, Vector3 velocity, Vector3 acceleration, float mass, float damping);
 
             void integrate(float duration);
 
-            Vector3 getForce();
-            void setForce(Vector3 force);
+            // Vector3 getForce();
+            // void setForce(Vector3 force);
 
             Vector3 getPosition();
             void setPosition(Vector3 position);
@@ -33,7 +32,7 @@ namespace HyperEngine{
             void setMass(float mass);
 
         private:
-            Vector3 force; 
+            // Vector3 force; 
             Vector3 position; 
             Vector3 velocity; 
             Vector3 acceleration; 

@@ -6,32 +6,29 @@ namespace HyperEngine{
     Particle::Particle(){ }
 
     Particle::Particle(float mass){
-        this->mass = mass; 
-
-        this->force = zeroVector; 
+        this->position = zeroVector; 
         this->velocity = zeroVector;
         this->position = zeroVector;
+
+        this->inverseMass = 1/mass; 
+        this->damping = dampingConst; 
     }
 
-    Particle::Particle(Vector3 position, Vector3 velocity, Vector3 acceleration, float mass){
-        this->force = gravity;
+    Particle::Particle(Vector3 position, Vector3 velocity, Vector3 acceleration, float mass, float damping){
         this->position = position;
         this->velocity = velocity;
         this->acceleration = acceleration;
-    }
 
-    Particle::Particle(Vector3 force, Vector3 position, Vector3 velocity, Vector3 acceleration, float mass){
-        this->force = force;
-        this->position = position;
-        this->velocity = velocity;
-        this->acceleration = acceleration;
+        this->inverseMass = 1/mass; 
+        this->damping = dampingConst; 
+
     }
 
     void Particle::integrate(float duration){
         position.addScaledVector(velocity, duration);
 
         Vector3 imposedAcceleration = acceleration;
-        imposedAcceleration.addScaledVector(forceAccum, inverseMass);
+        // imposedAcceleration.addScaledVector(forceAccum, inverseMass);
 
         velocity.addScaledVector(resultingAcc, duration);
 
@@ -39,13 +36,13 @@ namespace HyperEngine{
 
     }
 
-    Vector3 Particle::getForce(){
-        return force; 
-    }
+    // Vector3 Particle::getForce(){
+    //     return force; 
+    // }
 
-    void Particle::setForce(Vector3 force){
-        this->force = force;
-    }
+    // void Particle::setForce(Vector3 force){
+    //     this->force = force;
+    // }
 
     Vector3 Particle::getPosition(){
         return position; 
