@@ -7,9 +7,15 @@ namespace HyperEngine{
 
     class Particle{
         public:
-            Obeject();
+            Particle();
             Particle(float mass);
-            Particle(Vector3 force, Vector3 velocity, Vector3 position, float mass);
+            Particle(Vector3 position, Vector3 velocity, Vector3 acceleration, float mass);
+            Particle(Vector3 force, Vector3 position, Vector3 velocity, Vector3 acceleration, float mass);
+
+            void integrate(float duration);
+
+            Vector3 getForce();
+            void setForce(Vector3 force);
 
             Vector3 getPosition();
             void setPosition(Vector3 position);
@@ -28,8 +34,8 @@ namespace HyperEngine{
 
         private:
             Vector3 force; 
-            Vector3 velocity; 
             Vector3 position; 
+            Vector3 velocity; 
             Vector3 acceleration; 
             
             float damping; 
