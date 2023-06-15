@@ -36,16 +36,22 @@ namespace HyperEngine{
     }
 
 
-    Vector3 hadamardProduct(Vector3& v) const{
+    Vector3 Vector3::hadamardProduct(Vector3& v) const{
         return Vector3(x * vector.x, y * vector.y, z * vector.z);
     }
 
-    Vector3 crossProduct(const Vector3& v) const{
+    Vector3 Vector3::crossProduct(const Vector3& v) const{
         return Vector3(
             y*v.z - z*v.y, 
             z*v.x - x*v.z,
             x*v.y - y*v.x
         );
+    }
+
+    void Vector3::addScaledVector(const Vector3& v, float s){
+        x += vector.x * s; 
+        y += vector.y * s; 
+        z += vector.z * s; 
     }
 
     Vector3 Vector3::operator+(const Vector3& v1, const Vector3& v2){

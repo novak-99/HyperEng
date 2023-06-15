@@ -18,6 +18,8 @@ namespace HyperEngine{
             Vector3 hadamardProduct(const Vector3& v) const;
             Vector3 crossProduct(const Vector3& v) const; 
 
+            void addScaledVector(const Vector3& v, float s);
+
             Vector3 operator+(const Vector3& v1, const Vector3& v2);
             Vector3 operator-(const Vector3& v1, const Vector3& v2);
 
