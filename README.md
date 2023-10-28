@@ -8,6 +8,8 @@ Supports various constant acceleration physics operations, sphere objects and co
 
 ## Demo 
 
+https://github.com/novak-99/HyperEng/assets/78002988/d4e6d25f-d20d-4ddc-b99e-9dee081ff707
+
 ## How to Run 
 
 Must install glad, GLFW, GLM, STB. 
